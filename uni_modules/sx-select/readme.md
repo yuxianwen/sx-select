@@ -73,7 +73,7 @@
 
 | 属性名    | 类型           | 默认值 | 说明                            |
 | --------- | -------------- | ------ | ------------------------------- |
-| value     | String｜Number | -      | 默认值                          |
+| value     | Any | -      | 默认值                          |
 | items     | Array          | []     | 对象数组格式，选项列表值        |
 | itemText  | String         | text   | 设置**items**属性的文本值       |
 | itemValue | String         | text   | 设置**items**属性的属性值       |

@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		
+
 		<view class="title">默认状态：</view>
 		<view class="item">
 			<sx-select v-model="model" :items="[]" />
@@ -9,7 +9,7 @@
 		<view class="item">
 
 			<uni-list>
-				<sx-select v-model="model" :items="sexItems">
+				<sx-select v-model="model" :items="sexItems" @change="sexChange">
 					<template slot-scope="{title}">
 						<uni-list-item title="性别" show-arrow :right-text="title" />
 					</template>
@@ -34,10 +34,14 @@
 <script>
 	const sexItems = [{
 		text: '男',
-		value: 1
+		value: {
+			a: 1
+		}
 	}, {
 		text: '女',
-		value: 2
+		value: {
+			b: 2
+		}
 	}];
 	const jobItems = [{
 			text: '前端开发工程师',
@@ -62,7 +66,9 @@
 	export default {
 		data() {
 			return {
-				model: '',
+				model: {
+					a: 1
+				},
 				job: '1',
 				sexItems,
 				jobItems,
@@ -73,7 +79,9 @@
 
 		},
 		methods: {
-
+			sexChange(val) {
+				console.log('sex', val)
+			}
 		}
 	}
 </script>

@@ -12,7 +12,7 @@
 	export default {
 		name: 'sx-select',
 		props: {
-			value: String | Number,
+			value: null,
 			items: {
 				type: Array,
 				default: () => {
@@ -33,21 +33,10 @@
 			},
 			className: String
 		},
-		data() {
-			return {
-				index: undefined
-			};
-		},
 		methods: {
 			pickerChange(e) {
-				this.index = e.target.value;
-				const value = this.item ? this.item[this.itemValue] || this.item : '';
-				this.emit(value);
-			},
-			getIndex() {
-				this.index = this.items.findIndex(v => (v[this.itemValue] || v) === this.value);
-			},
-			emit(value) {
+				const index = e.target.value;
+				const value = this.items[index][this.itemValue]
 				this.$emit('input', value);
 				this.$emit('change', value);
 			}
@@ -56,31 +45,18 @@
 			item() {
 				return this.items[this.index];
 			},
+			index() {
+				return this.items.findIndex(v => {
+					return JSON.stringify(v[this.itemValue]) === JSON.stringify(this.value.valueOf())
+				});
+			},
 			selectTitle() {
 				if (typeof this.index === 'number' && this.index !== -1) {
-					return this.item ? this.item[this.itemText] || this.item : this.value;
+					return this.item ? this.item[this.itemText] : this.value;
 				} else {
 					return this.title;
 				}
 			}
-		},
-		created() {
-			this.getIndex();
-		},
-		watch: {
-			items() {
-				this.getIndex();
-			},
-			value(value) {
-				this.getIndex();
-				this.emit(value);
-			}
 		}
 	};
 </script>
-
-<style scoped>
-	/* 	.sx-select .sx-select-title {
-		font-size: 12px;
-	} */
-</style>

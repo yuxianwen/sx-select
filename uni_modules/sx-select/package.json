@@ -1,12 +1,12 @@
 {
   "id": "sx-select",
-  "displayName": "sx-select基于原生picker组件进行轻度封装，更加流程，性能更好，适用任意场景",
-  "version": "1.0.0",
+  "displayName": "sx-select基于原生picker组件进行轻度封装，更加流畅，性能更好，适用任意场景",
+  "version": "1.0.1",
   "description": "基于原生内置组件picker]进行了封装，使用原生组件渲染快、性能好，由于原生组件使用比较繁琐  故稍微做了下改造封装，没有任何修改，纯官方原汁原味原生picker",
   "keywords": [
     "sx-select;picker;select;选择;下拉框;选择框"
 ],
-  "repository": "",
+  "repository": "https://github.com/yuxianwen/sx-select",
   "engines": {
     "HBuilderX": "^3.4.15"
   },
